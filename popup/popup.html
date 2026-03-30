@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayNoPause - 持续播放</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 头部区域 -->
+    <header class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
+          <polygon points="10,8 16,12 10,16" fill="currentColor"/>
+        </svg>
+        <h1>PlayNoPause</h1>
+      </div>
+      <p class="subtitle">离开网页时保持媒体播放</p>
+    </header>
+
+    <!-- 全局开关 -->
+    <div class="toggle-section">
+      <span class="toggle-label">全局启用</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="globalToggle">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <!-- 快速添加 -->
+    <div class="action-section">
+      <button id="addCurrentBtn" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 5V11M5 8H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        添加当前网页
+      </button>
+    </div>
+
+    <!-- 手动输入 -->
+    <div class="input-section">
+      <div class="input-group">
+        <input type="text" id="siteInput" placeholder="输入域名，如 bilibili.com">
+        <button id="addSiteBtn" class="btn btn-secondary">添加</button>
+      </div>
+    </div>
+
+    <!-- 站点列表 -->
+    <div class="list-section">
+      <h2 class="list-title">已添加的网站</h2>
+      <div id="siteList" class="site-list">
+        <!-- 站点列表由 JS 动态渲染 -->
+      </div>
+      <div id="emptyTip" class="empty-tip" style="display: none;">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+          <path d="M18 24H30M24 18V30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p>还没有添加任何网站</p>
+        <p class="empty-tip-sub">点击上方按钮添加当前网页</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
